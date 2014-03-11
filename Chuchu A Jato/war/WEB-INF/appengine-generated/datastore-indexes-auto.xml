@@ -1,0 +1,24 @@
+<!-- Indices written at Sat, 8 Mar 2014 23:21:49 BRT -->
+
+<datastore-indexes>
+
+    <!-- Used 7 times in query history -->
+    <datastore-index kind="Mesa" ancestor="false" source="auto">
+        <property name="idExpediente" direction="asc"/>
+        <property name="numeroMesa" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 24 times in query history -->
+    <datastore-index kind="Pedido" ancestor="false" source="auto">
+        <property name="estadoPedido" direction="asc"/>
+        <property name="idMesa" direction="asc"/>
+        <property name="horarioPedido" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Pedido" ancestor="false" source="auto">
+        <property name="estadoPedido" direction="asc"/>
+        <property name="horarioPedido" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

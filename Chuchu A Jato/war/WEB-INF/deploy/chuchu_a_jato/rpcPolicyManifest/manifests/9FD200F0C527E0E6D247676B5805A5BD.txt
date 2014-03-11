@@ -1,0 +1,2 @@
+serviceClass: br.com.alexromanelli.chuchuajato.client.services.PratoService
+path: 20A23C0781FBEB09B5540D945CE1CBC1.gwt.rpc

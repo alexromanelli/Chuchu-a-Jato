@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AtendimentoDeMesa-ChuchuAJato</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_atividade_atendimento_mesa">AtividadeAtendimentoMesa</string>
+    <string name="title_activity_atividade_operacao_pedido">AtividadeOperacaoPedido</string>
+    <string name="menuitem_atendimento_mesa">Atendimento de mesa</string>
+    <string name="menuitem_sair">Sair</string>
+    <string name="menuitem_confirmar">Confirmar</string>
+    <string name="menuitem_cancelar">Cancelar</string>
+    <string name="menuitem_registrar_pedido">Registrar pedido</string>
+    <string name="menuitem_voltar">Voltar</string>
+    <string name="menuitem_registrar_atendimento">Registrar atendimento concluído</string>
+
+    <string name="label_numero_mesa">Mesa</string>
+    <string name="botao_numero_mesa">Selecionar</string>
+    <string name="label_listagem_pedidos">Pedidos registrados</string>
+    <string name="listagem_pedidos_vazia">Não há pedido registrado.</string>
+    <string name="label_pedido_mesa">Mesa</string>
+    <string name="label_pedido_item">Item pedido</string>
+    <string name="label_pedido_descricao_item">Descrição item</string>
+    <string name="label_pedido_rendimento">Rendimento</string>
+    <string name="label_pedido_preco">Preço</string>
+    <string name="label_pedido_quantidade">Quantidade</string>
+    <string name="botao_pedido_salvar">Registrar pedido</string>
+    <string name="label_texto_principal">Use o menu de opções. :-)</string>
+
+</resources>

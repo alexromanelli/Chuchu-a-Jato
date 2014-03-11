@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.alexromanelli.android.atendimentodemesa_chuchuajato.app.MainActivity" >
+    
+    <item android:id="@+id/action_atendimento_mesa"
+        android:title="@string/menuitem_atendimento_mesa"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_sair"
+        android:title="@string/menuitem_sair"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+</menu>

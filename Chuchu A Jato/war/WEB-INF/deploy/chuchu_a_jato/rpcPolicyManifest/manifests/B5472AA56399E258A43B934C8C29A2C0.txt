@@ -1,0 +1,2 @@
+serviceClass: br.com.alexromanelli.chuchuajato.client.services.PedidoService
+path: 34A3CFA5A4F4230F48A5646B87A6DD6D.gwt.rpc

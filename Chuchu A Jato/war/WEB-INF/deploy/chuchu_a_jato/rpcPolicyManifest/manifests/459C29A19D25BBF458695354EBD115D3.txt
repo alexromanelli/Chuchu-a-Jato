@@ -1,0 +1,2 @@
+serviceClass: br.com.alexromanelli.chuchuajato.client.services.BebidaService
+path: 07FD2FCEE80D75EA0E8F9DC946575B43.gwt.rpc

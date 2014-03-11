@@ -1,0 +1,2 @@
+serviceClass: br.com.alexromanelli.chuchuajato.client.services.ExpedienteService
+path: F8055AB29E15CE9DA95DE208202EBAC4.gwt.rpc
