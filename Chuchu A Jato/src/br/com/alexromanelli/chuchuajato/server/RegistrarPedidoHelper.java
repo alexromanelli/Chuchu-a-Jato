@@ -120,8 +120,7 @@ public class RegistrarPedidoHelper {
 	                Expediente.class.getSimpleName(), idExpediente));
 	    		String estado = (String) regExpediente
 	    				.getProperty(Expediente.KEY_ESTADO_EXPEDIENTE);
-	    		if (estado.charAt(0) == 
-	    				Expediente.EstadoExpediente.EXPEDIENTE_ABERTO) {
+	    		if (estado.equals(Expediente.EstadoExpediente.EXPEDIENTE_ABERTO)) {
 	    	        idMesa = mesa.getKey().getId();
 	    			break;
 	    		}

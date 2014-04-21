@@ -1,6 +1,6 @@
 # Module chuchu_a_jato
 # RPC service class, partial path of RPC policy file
 br.com.alexromanelli.chuchuajato.client.services.BebidaService, 07FD2FCEE80D75EA0E8F9DC946575B43.gwt.rpc
+br.com.alexromanelli.chuchuajato.client.services.PedidoService, 17A07E803FEB50006847BFF21EC263DA.gwt.rpc
 br.com.alexromanelli.chuchuajato.client.services.ExpedienteService, F8055AB29E15CE9DA95DE208202EBAC4.gwt.rpc
 br.com.alexromanelli.chuchuajato.client.services.PratoService, 20A23C0781FBEB09B5540D945CE1CBC1.gwt.rpc
-br.com.alexromanelli.chuchuajato.client.services.PedidoService, 34A3CFA5A4F4230F48A5646B87A6DD6D.gwt.rpc

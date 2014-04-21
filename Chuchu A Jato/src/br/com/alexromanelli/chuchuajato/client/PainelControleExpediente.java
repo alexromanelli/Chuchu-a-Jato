@@ -19,7 +19,6 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.datepicker.client.CalendarUtil;
 
 public class PainelControleExpediente extends VerticalPanel {
 
@@ -36,7 +35,7 @@ public class PainelControleExpediente extends VerticalPanel {
 	// servidor
 	private ExpedienteServiceAsync expedienteService = GWT
 			.create(ExpedienteService.class);
-	private char estadoAtual;
+	private String estadoAtual;
 
 	public PainelControleExpediente() {
 		super();
@@ -64,7 +63,7 @@ public class PainelControleExpediente extends VerticalPanel {
 		buttonAlterarEstado.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				if (estadoAtual == Expediente.EstadoExpediente.EXPEDIENTE_ABERTO) {
+				if (estadoAtual.equals(Expediente.EstadoExpediente.EXPEDIENTE_ABERTO)) {
 					fecharExpediente();
 				} else {
 					abrirExpediente();
@@ -152,14 +151,14 @@ public class PainelControleExpediente extends VerticalPanel {
 			}
 		};
 
-		AsyncCallback<Character> callbackEstadoExpediente = new AsyncCallback<Character>() {
+		AsyncCallback<String> callbackEstadoExpediente = new AsyncCallback<String>() {
 			@Override
 			public void onFailure(Throwable caught) {
 			}
 
 			@Override
-			public void onSuccess(Character result) {
-				if (result.charValue() == Expediente.EstadoExpediente.EXPEDIENTE_ABERTO)
+			public void onSuccess(String result) {
+				if (result.equals(Expediente.EstadoExpediente.EXPEDIENTE_ABERTO))
 					expedienteService.getNumeroMesas(callbackNumeroMesas);
 				else
 					exibeExpedienteFechado();

@@ -8,8 +8,8 @@ import java.util.Date;
 public class Expediente implements Serializable {
 
     public static class EstadoExpediente {
-        public static final Character EXPEDIENTE_ABERTO = new Character('A');
-        public static final Character EXPEDIENTE_FECHADO = new Character('F');
+        public static final String EXPEDIENTE_ABERTO = "A";
+        public static final String EXPEDIENTE_FECHADO = "F";
     }
 
     public static String KEY_ID = "id";
@@ -20,14 +20,14 @@ public class Expediente implements Serializable {
     private long id;
     private Date dataAbertura;
     private int numeroMesas;
-    private Character estadoExpediente;
+    private String estadoExpediente;
 
     public Expediente() {
 		super();
 	}
 
 	public Expediente(long id, Date dataAbertura, int numeroMesas,
-            Character estadoExpediente) {
+            String estadoExpediente) {
         super();
         this.id = id;
         this.dataAbertura = dataAbertura;
@@ -51,11 +51,11 @@ public class Expediente implements Serializable {
         this.numeroMesas = numeroMesas;
     }
 
-    public Character getEstadoExpediente() {
+    public String getEstadoExpediente() {
         return estadoExpediente;
     }
 
-    public void setEstadoExpediente(Character estadoExpediente) {
+    public void setEstadoExpediente(String estadoExpediente) {
         this.estadoExpediente = estadoExpediente;
     }
 

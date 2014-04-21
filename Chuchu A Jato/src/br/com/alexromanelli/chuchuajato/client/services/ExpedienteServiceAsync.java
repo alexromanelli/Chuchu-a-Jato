@@ -11,6 +11,6 @@ public interface ExpedienteServiceAsync {
 	
     void getNumeroMesas(AsyncCallback<Integer> callback);
 
-    void getEstadoExpediente(AsyncCallback<Character> callback);
+    void getEstadoExpediente(AsyncCallback<String> callback);
 
 }

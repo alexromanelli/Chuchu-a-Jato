@@ -150,7 +150,7 @@ public class PedidoServiceImpl extends RemoteServiceServlet implements
             v[i++] = new Expediente(e.getKey().getId(),
                     (Date) e.getProperty(Expediente.KEY_DATA_ABERTURA),
                     ((Long) e.getProperty(Expediente.KEY_NUMERO_MESAS)).intValue(),
-                    ((String) e.getProperty(Expediente.KEY_ESTADO_EXPEDIENTE)).charAt(0));
+                    ((String) e.getProperty(Expediente.KEY_ESTADO_EXPEDIENTE)));
         }
         return v;
 	}

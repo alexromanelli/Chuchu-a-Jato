@@ -62,7 +62,7 @@ public class ExpedienteServiceImpl extends RemoteServiceServlet implements
     }
 
     @Override
-    public char getEstadoExpediente() {
+    public String getEstadoExpediente() {
         DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
         Query q = new Query("Expediente");
         q.addSort(Expediente.KEY_DATA_ABERTURA, SortDirection.DESCENDING);
@@ -70,15 +70,15 @@ public class ExpedienteServiceImpl extends RemoteServiceServlet implements
         List<Entity> l = pq.asList(FetchOptions.Builder.withDefaults());
 
         if (l.size() == 0)
-            return 0;
+            return "";
 
         else {
             Entity expedienteRecente = l.get(0);
-            Character estadoExpediente = ((String) expedienteRecente
+            String estadoExpediente = (String) expedienteRecente
                     // primeiro caractere da string de tamanho 1
-                    .getProperty(Expediente.KEY_ESTADO_EXPEDIENTE)).charAt(0);
+                    .getProperty(Expediente.KEY_ESTADO_EXPEDIENTE);
             
-            return estadoExpediente.charValue();
+            return estadoExpediente;
         }
     }
 
@@ -129,7 +129,7 @@ public class ExpedienteServiceImpl extends RemoteServiceServlet implements
                 .getInstance(TimeZone.getTimeZone("GMT-03:00")).getTime());
         regExpediente.setProperty(Expediente.KEY_NUMERO_MESAS, numeroMesas);
         regExpediente.setProperty(Expediente.KEY_ESTADO_EXPEDIENTE,
-                Expediente.EstadoExpediente.EXPEDIENTE_ABERTO.toString());
+                Expediente.EstadoExpediente.EXPEDIENTE_ABERTO);
 
         datastore.put(regExpediente);
         
@@ -159,7 +159,7 @@ public class ExpedienteServiceImpl extends RemoteServiceServlet implements
             regExpediente = datastore.get(keyExpedienteAberto);
             // atualiza a propriedade estadoExpediente para fechado
             regExpediente.setProperty(Expediente.KEY_ESTADO_EXPEDIENTE,
-                    Expediente.EstadoExpediente.EXPEDIENTE_FECHADO.toString());
+                    Expediente.EstadoExpediente.EXPEDIENTE_FECHADO);
 
             // atualiza registro no datastore
             datastore.put(regExpediente);
@@ -180,7 +180,7 @@ public class ExpedienteServiceImpl extends RemoteServiceServlet implements
 	    Filter filtroAberto = new Query.FilterPredicate(
 	    		Expediente.KEY_ESTADO_EXPEDIENTE,
 	            FilterOperator.EQUAL,
-	            Expediente.EstadoExpediente.EXPEDIENTE_ABERTO.toString());
+	            Expediente.EstadoExpediente.EXPEDIENTE_ABERTO);
 	    qExpediente.setFilter(filtroAberto);
 	    
 	    PreparedQuery pqExpediente = ds.prepare(qExpediente);
@@ -203,7 +203,7 @@ public class ExpedienteServiceImpl extends RemoteServiceServlet implements
 	    Filter filtroAberto = new Query.FilterPredicate(
 	    		Expediente.KEY_ESTADO_EXPEDIENTE,
 	            FilterOperator.EQUAL,
-	            Expediente.EstadoExpediente.EXPEDIENTE_ABERTO.toString());
+	            Expediente.EstadoExpediente.EXPEDIENTE_ABERTO);
 	    qExpediente.setFilter(filtroAberto);
 	    
 	    PreparedQuery pqExpediente = ds.prepare(qExpediente);
@@ -222,7 +222,7 @@ public class ExpedienteServiceImpl extends RemoteServiceServlet implements
 	    Filter filtroAberto = new Query.FilterPredicate(
 	    		Expediente.KEY_ESTADO_EXPEDIENTE,
 	            FilterOperator.EQUAL,
-	            Expediente.EstadoExpediente.EXPEDIENTE_ABERTO.toString());
+	            Expediente.EstadoExpediente.EXPEDIENTE_ABERTO);
 	    qExpediente.setFilter(filtroAberto);
 	    
 	    PreparedQuery pqExpediente = ds.prepare(qExpediente);

@@ -37,7 +37,7 @@ public interface ExpedienteService extends RemoteService {
 
     int getNumeroMesas();
 
-    char getEstadoExpediente();
+    String getEstadoExpediente();
 
 	boolean abrirExpediente(int numeroMesas);
 

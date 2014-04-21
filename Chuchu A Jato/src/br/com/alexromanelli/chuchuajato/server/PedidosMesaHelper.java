@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.alexromanelli.chuchuajato.dados.Bebida;
+import br.com.alexromanelli.chuchuajato.dados.Expediente;
 import br.com.alexromanelli.chuchuajato.dados.ItemCardapio;
 import br.com.alexromanelli.chuchuajato.dados.Mesa;
 import br.com.alexromanelli.chuchuajato.dados.PedidoBebida;
@@ -112,18 +113,48 @@ public class PedidosMesaHelper {
 	private static long getIdentificadorMesa(int numeroMesa) {
 	    DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 	    
+	    long idExpediente = getIdentificadorExpedienteAtual();
+	    
 	    Query qMesa = new Query("Mesa");
-	    Filter filtroMesa = new FilterPredicate(Mesa.KEY_NUMERO_MESA,
-	    		FilterOperator.EQUAL,
-	    		numeroMesa);
+	    
+	    Filter filtroMesa = new CompositeFilter(CompositeFilterOperator.AND,
+	    		Arrays.<Filter>asList(
+	    				new FilterPredicate(Mesa.KEY_NUMERO_MESA,
+	    		                    FilterOperator.EQUAL,
+	    		                    numeroMesa),
+	    		        new FilterPredicate(Mesa.KEY_ID_EXPEDIENTE,
+	    		                    FilterOperator.EQUAL,
+	    		                    idExpediente)));
+	    
 	    qMesa.setFilter(filtroMesa);
 	    PreparedQuery pqMesa = ds.prepare(qMesa);
 	    List<Entity> listMesa = pqMesa.asList(FetchOptions.Builder.withLimit(1));
-	    long idMesa = -1;
+	    Long idMesa = -1L;
 	    if (listMesa.size() > 0) {
-	        idMesa = ((Long)listMesa.get(0).getKey().getId()).longValue();
+	        idMesa = (Long) listMesa.get(0).getKey().getId();
 	    }
 	    return idMesa;
+	}
+
+	private static long getIdentificadorExpedienteAtual() {
+        DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+        Query q = new Query("Expediente");
+		Filter filtro = new FilterPredicate(Expediente.KEY_ESTADO_EXPEDIENTE,
+				FilterOperator.EQUAL,
+				Expediente.EstadoExpediente.EXPEDIENTE_ABERTO);
+		q.setFilter(filtro);
+        PreparedQuery pq = ds.prepare(q);
+        List<Entity> l = pq.asList(FetchOptions.Builder.withDefaults());
+
+        if (l.size() == 0)
+            return 0;
+
+        else {
+            Entity expediente = l.get(0);
+            Long idExpediente = (Long) expediente
+                    .getKey().getId();
+            return idExpediente;
+        }
 	}
 
 	protected static Mesa formaMesa(Entity regMesa) {
