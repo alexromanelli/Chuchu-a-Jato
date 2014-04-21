@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <%
 try {    
-    int idPedido = Integer.parseInt(request.getParameter("pedido"));
+    long idPedido = Long.parseLong(request.getParameter("pedido"));
     if (CancelarPedidoHelper.cancelarPedido(idPedido)) {
 %>
 <resultado>1</resultado>

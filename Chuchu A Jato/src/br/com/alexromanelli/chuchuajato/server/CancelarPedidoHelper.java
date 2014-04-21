@@ -13,7 +13,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 
 public class CancelarPedidoHelper {
 
-	public static boolean cancelarPedido(int idPedido) {
+	public static boolean cancelarPedido(long idPedido) {
         DatastoreService datastore = DatastoreServiceFactory
                 .getDatastoreService();
 
